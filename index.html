@@ -6,8 +6,8 @@
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
   <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css' rel='stylesheet' />
   <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
   <!-- <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script> -->
@@ -55,7 +55,7 @@ p {
 
 
   #district_pop_main{
-    background-color: #003776;
+    background-color: #19191a;
   }
 
 
@@ -196,7 +196,7 @@ color: #999fa0;
   	height: 0;
   }
   .calculation-box {
-   background-color: #e9ae40;
+   background-color: #ac8f52;
 
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -238,14 +238,14 @@ color: #999fa0;
 }
 #tot_budget_title > p{
   font-size: 15px;
-  color: #003776;
+  color: #191a1a;
   font-weight: 100;
 
 }
 
 #area_polygon_title > p{
   font-size: 15px;
-  color: #003776;
+  color: #191b1a;
   font-weight: 100;
 }
 #country_name_ > p > i{
@@ -282,7 +282,7 @@ color: #999fa0;
 
   .section_out_number > p {
     font-size: 24px;
-    color: #002f67;
+    color: #19191a;
     font-weight: bold;
     margin-top: -18px;
 }
@@ -291,7 +291,7 @@ color: #999fa0;
 
   }
   #country_pop_main{
-    background-color: #003776;
+    background-color: #191a1a;
 
   }
   #district_popx > p {
@@ -308,7 +308,7 @@ color: #999fa0;
     padding: 13px;
     color: #ffffff;
     font-weight: 100;
-    background-color: #002f67;
+    background-color: #0a0b0b;
     height: 50px;
     /* margin-top: -17px; */
     z-index: 999999999999999999999999999999999999;
@@ -316,7 +316,7 @@ color: #999fa0;
     /* border-top: 11px solid #cad2d3; */
     position: relative;
     /* margin-top: 2px; */
-    border-top: 4px solid #ffffff;
+
   }
   #district_name_ > p {
     font-size: 25px;
@@ -325,7 +325,7 @@ color: #999fa0;
     padding: 13px;
     color: #ffffff;
     font-weight: 100;
-    background-color: #002f67;
+    background-color: #0a0b0b;
     height: 50px;
     /* margin-top: -17px; */
     z-index: 999999999999999999999999999999999999;
@@ -366,9 +366,9 @@ color: #999fa0;
     }
 
 #dddd{
-  background: #002f67;
+  background: #19191a;
   border-bottom: 0px solid white;
-  border-top: 4px solid #ffffff;
+  border-top: 4px solid #19191a;
 }
 
 
@@ -448,11 +448,14 @@ color: #999fa0;
   	text-align: center;
   	padding-top: 18px;
   }
+  .btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #d9850d!important;
+}
   .mapboxgl-ctrl-geocoder input[type='text'] {
     font-size: 12px;
     width: 88%!important;
     border: 0;
-    background-color: #002f67!important;
+    background-color: #191a1a!important;
     height: 40px;
     margin: 0;
     color: rgba(0,0,0,.5);
@@ -468,7 +471,7 @@ color: #999fa0;
         /* left: 50%; */
         margin-left: 1%;
         top: 20px;
-        background: #002f67;
+        background: #191919;
         padding: 8px;
         transition: left 0.5s;
         -webkit-transform: translateX(0px);
@@ -561,10 +564,10 @@ font-weight: bold;
 margin: 0 0 5px;
 }
 select {
-    background-color: rgb(3 39 82)!important;
+  background-color: rgb(25 25 25)!important;
     width: 100%;
     padding: 5px;
-    border: 1px solid #002f67!important;
+    border: 1px solid #272729!important;
     border-radius: 2px;
     height: 3rem;
     color: #e9ae40;
@@ -583,7 +586,7 @@ select {
 
 .top_dropdown_inner{
   width: 398px;
-    background-color: #002f67;
+    background-color: #191919;
     padding: 10px;
 }
 .mapboxgl-ctrl-geocoder { min-width:100%; }
@@ -698,7 +701,7 @@ var zoomThreshold = 4;
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v9',
+    style: 'mapbox://styles/mapbox/dark-v10',
     center: [14, -0.57], // starting position[35.890, -75.664]
     zoom: 3.39, // starting zoom
     hash: true,
@@ -765,10 +768,47 @@ console.log(ev);
 
         });
 
+/*         map.addSource('mapbox-dem', {
+'type': 'raster-dem',
+'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+'tileSize': 512,
+'maxzoom': 14
+});
+// add the DEM source as a terrain layer with exaggerated height
+map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 2 }); */
 
+map.addLayer({
+'id': 'sky',
+'type': 'sky',
+'paint': {
+// set up the sky layer to use a color gradient
+'sky-type': 'gradient',
+// the sky will be lightest in the center and get darker moving radially outward
+// this simulates the look of the sun just below the horizon
+'sky-gradient': [
+'interpolate',
+['linear'],
+['sky-radial-progress'],
+0.8,
+'#000000',
+1,
+'#404040'
+],
+'sky-gradient-center': [0, 0],
+'sky-gradient-radius': 90,
+'sky-opacity': [
+'interpolate',
+['exponential', 0.1],
+['zoom'],
+5,
+0,
+22,
+1
+]
+}
+});
 
-
-  map.addLayer({
+        map.addLayer({
       "id": "gadm36_pop_district",
       "type": "fill",
       "source": {
@@ -780,7 +820,7 @@ console.log(ev);
       'paint': {
                       'fill-color': ['interpolate',['linear'],['get', 'country_pop_2015'],0, '#ffffd4',1000000, '#ffefb5',5000000, '#ffde96',10000000, '#fec46c',15000000, '#fea73f',25000000, '#f68c23',35000000, '#e67217',50000000, '#d25a0c',75000000, '#b64708',100000000, '#993404'],
                     //  'fill-outline-color': '#ffffff',
-                      'fill-opacity': 0.95,
+                      'fill-opacity': 0.8,
                       // 'fill-outline-opacity': 0
 
                 },
@@ -788,6 +828,12 @@ console.log(ev);
   }, 'waterway-label');
 
 
+// Add fog
+map.setFog({
+'range': [-1, 5.5],
+'color': 'black',
+'horizon-blend': 0.1
+});
 
 
   year_layer_district.addEventListener('change', function() {
@@ -851,22 +897,22 @@ console.log(ev);
         // make circles larger as the user zooms from z12 to z22
         'circle-radius': {
         'base': 3.75,
-        'stops': [[5, 5], [8, 16]]
+        'stops': [[0, 1], [8, 5]]
         },
       'circle-color': [
           'interpolate',
           ['linear'],
           ['get', 'grid_code'],
           0, '#ffffcc',
-          100, '#ffeda0',
-          1000, '#fed976',
-          5000, '#feb24c',
-          15000, '#fd8d3c',
-          500000, '#fc4e2a',
-          1000000, '#e31a1c',
-          5000000, '#b10026',
+          1000, '#ffeda0',
+          10000, '#fed976',
+          50000, '#feb24c',
+          150000, '#fd8d3c',
+          5000000, '#fc4e2a',
+          10000000, '#e31a1c',
+          50000000, '#b10026',
       ],
-        'circle-opacity': 1,
+        'circle-opacity': 0,
         },
         "filter": ["in", "pointid", ""]
 
@@ -900,9 +946,74 @@ console.log(ev);
           50000000, '#b10026',
         ],
 
-         'circle-opacity': 1
+         'circle-opacity': 0
       },
       "filter":["in", "iso2", ""]
+
+    }, 'waterway-label');
+
+
+    map.addLayer({
+        "id": "pop_2015_points_1k_iso2_district_v1p1",
+        "type": "fill-extrusion",
+        "source": {
+            "type": "vector",
+            "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=africa_platform:pop_2015_points_1k_iso2_district_v1p1&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
+            },
+        "source-layer": "pop_2015_points_1k_iso2_district_v1p1",
+        'paint': {
+                                   'fill-extrusion-color': [
+                                   'interpolate',
+                                      ['linear'],
+                                      ['get', 'grid_code'],
+                                      0, '#181818',
+                                    1000, '#ffeda0',
+                                    10000, '#fed976',
+                                    50000, '#feb24c',
+                                    150000, '#fd8d3c',
+                                    5000000, '#fc4e2a',
+                                    10000000, '#e31a1c',
+                                    50000000, '#b10026',
+                                     ],
+                                     'fill-extrusion-height': ['get', 'grid_code'],
+                                     'fill-extrusion-opacity': 0.8
+                                    // 'fill-extrusion-base': 300,
+
+                                          },
+                                          "filter": ["in", "pointid", ""]
+
+
+    }, 'waterway-label');
+
+
+    map.addLayer({
+        "id": "point_selecte_by_drow2",
+        "type": "fill-extrusion",
+        "source": {
+            "type": "vector",
+            "tiles": ["https://geospatial.jrc.ec.europa.eu/geoserver/gwc/service/wmts?layer=africa_platform:pop_2015_points_1k_iso2_district_v1p1&tilematrixset=EPSG:900913&Service=WMTS&Request=GetTile&Version=1.0.0&Format=application/x-protobuf;type=mapbox-vector&TileMatrix=EPSG:900913:{z}&TileCol={x}&TileRow={y}"]
+            },
+        "source-layer": "pop_2015_points_1k_iso2_district_v1p1",
+        'paint': {
+                                   'fill-extrusion-color': [
+                                   'interpolate',
+                                      ['linear'],
+                                      ['get', 'grid_code'],
+                                      0, '#181818',
+                                    1000, '#ffeda0',
+                                    10000, '#fed976',
+                                    50000, '#feb24c',
+                                    150000, '#fd8d3c',
+                                    5000000, '#fc4e2a',
+                                    10000000, '#e31a1c',
+                                    50000000, '#b10026',
+                                     ],
+                                     'fill-extrusion-height': ['get', 'grid_code'],
+                                     'fill-extrusion-opacity': 1
+
+                                          },
+                                          "filter": ["in", "pointid", ""]
+
 
     }, 'waterway-label');
 
@@ -910,15 +1021,9 @@ console.log(ev);
 
 
 
-
-
-
-
-
-
   map.on('click', 'gadm36_pop_district', function(e) {
-
-
+    var filter_points = ["all",["in", 'iso2', "xxx"],[">=", 'grid_code', 0]];
+    map.setFilter('point_selecte_by_drow2', filter_points);
 
       if (e.features.length > 0) {
       var feature = e.features[0];
@@ -928,10 +1033,10 @@ console.log(ev);
       // map.setFilter('pop_2015_points_1khighlighted', ['==', 'country_iso2', country_id ]);
       $('#country_name').empty().append("<div id='country_name_'> <p> "+feature.properties.country_name+"</p></div> "+
       "<div id = 'country_pop_main' class = 'card_custom'><div id='country_pop_title' class = 'section_out_title'> <p>Inhabitants (2015)</p> </div><div id='country_popx' class = 'section_out_number'> <p> "+country_pop_2015.toLocaleString()+" People </p> </div></div>"+
-      "<div id = 'country_pop_main' class = 'card_custom'><div id='country_pop_title' class = 'section_out_title'> <p>Population density </p> </div><div id='country_popx' class = 'section_out_number'> <p> "+Math.round(feature.properties.country_pop_den_2015*10)/10+" per Km2 </p> </div></div>"+
+      "<div id = 'country_pop_main' class = 'card_custom'><div id='country_pop_title' class = 'section_out_title'> <p>Rate of Pop Change (2010-2015)</p> </div><div id='country_popx' class = 'section_out_number'> <p> "+Math.round(feature.properties.country_pop_change_per*10)/10+" % </p> </div></div>"+
       "<div id='district_name_'> <p> "+feature.properties.district_name+"</p></div> "+
       "<div id = 'district_pop_main' class = 'card_custom'><div id='country_pop_title' class = 'section_out_title'> <p>Inhabitants (2015)</p> </div><div id='district_popx' class = 'section_out_number'> <p> "+feature.properties.district_pop_2015.toLocaleString()+" People </p> </div></div>"+
-      "<div id = 'district_pop_main' class = 'card_custom'><div id='country_pop_title' class = 'section_out_title'> <p>Population density </p> </div><div id='district_popx' class = 'section_out_number'> <p> "+Math.round(feature.properties.district_pop_den_2015*10)/10+" per Km2</p> </div></div>"+
+      "<div id = 'district_pop_main' class = 'card_custom'><div id='country_pop_title' class = 'section_out_title'> <p>Rate of Pop Change (2010-2015)</p> </div><div id='district_popx' class = 'section_out_number'> <p> "+Math.round(feature.properties.district_pop_chage_perc*10)/10+" % </p> </div></div>"+
       "<div id = 'dddd'><div id = 'btn_maps'><button type='button' class='btn btn-primary draw_rec_custom'><i class='far fa-square'></i></button><button type='button' class='btn btn-primary draw_custom'><i class='fas fa-draw-polygon'></i></button><button type='button' class='btn btn-secondary clean_custom'><i class='fas fa-trash-alt'></i></button><button type='button' class='btn btn-secondary zoom_custom'><i class='fas fa-globe'></i></button><button  onClick='window.location.reload()' type='button' class='btn btn-secondary reload_custom'><i class='fas fa-sync-alt'></i></button></div>");
 
       if($('.sidebar').css('display') == 'none')
@@ -953,6 +1058,7 @@ console.log(ev);
          map.setFilter("gadm36_pop_district", filter);
          var filter_points = ["all",["in", 'iso2', iso2],[">=", 'grid_code', 0]];
          map.setFilter('pop_2015_points_1k_iso2_district_v1', filter_points);
+         map.setFilter('pop_2015_points_1k_iso2_district_v1p1', filter_points);
 
 
     }
@@ -1048,6 +1154,8 @@ map.on('draw.create', function(e){
     }, ['in', 'pointid']);
 
     map.setFilter("point_selecte_by_drow", filter_selected);
+    map.setFilter("point_selecte_by_drow2", filter_selected);
+    
 
    // calculate budget ------------------------------------------------------------------------------------------
     var budget = features.reduce(function(print_budget, feature) {
